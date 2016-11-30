@@ -1,0 +1,19 @@
+		單一動作長x寬	動作數	整張長x寬
+mario		20x27		4	80x27
+mariocar	196x196		1	196x196
+
+coin		30x22		12	360x22
+block		276x78		1	276x78
+pipe		468x597		1	468x597
+speedup_board	140x43		2	280x43
+cliff		160x128		1	160x128
+nitrogen	44x44		1	44x44
+
+green_turtle	50x32		6	300x32
+red_turtle	50x32		4	200x32
+green_eat_plant	50x33		2	100x33
+red_eat_plant	50x33		2	100x33
+big_fish	50x39		4	200x39
+big_monster	60x50		8	480x50
+
+life		125x95		5	624x94

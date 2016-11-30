@@ -1,0 +1,19 @@
+﻿  Object_class.cpp
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(37): error C2440: 'return': cannot convert from 'int' to 'marioPocket'
+  d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(37): note: Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(239): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(264): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(290): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(317): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+  Generating Code...
+  Compiling...
+  RunMario.cpp
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(37): error C2440: 'return': cannot convert from 'int' to 'marioPocket'
+  d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(37): note: Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(239): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(264): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(290): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\object_class.h(317): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\definerunmario.h(7): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\course\完整版跑跑瑪莉歐\run run mario2\runmario.cpp(1066): warning C4244: 'argument': conversion from 'const GLfloat' to 'int', possible loss of data
+  Generating Code...
