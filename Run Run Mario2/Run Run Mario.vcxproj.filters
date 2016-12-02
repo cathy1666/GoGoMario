@@ -21,10 +21,10 @@
     <ClCompile Include="Object_class.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
-    <ClCompile Include="kglTexture.cpp">
+    <ClCompile Include="kglGLExt.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
-    <ClCompile Include="kglGLExt.c">
+    <ClCompile Include="kglTexture.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>

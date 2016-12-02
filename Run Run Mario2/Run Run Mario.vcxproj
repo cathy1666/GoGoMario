@@ -70,7 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="kglGLExt.c" />
+    <ClCompile Include="kglGLExt.cpp" />
     <ClCompile Include="kglTexture.cpp" />
     <ClCompile Include="Object_class.cpp" />
     <ClCompile Include="RunMario.cpp" />

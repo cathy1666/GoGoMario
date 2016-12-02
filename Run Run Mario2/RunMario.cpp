@@ -96,7 +96,6 @@ int InitGL(GLvoid)
 	return TRUE;
 }
 
-
 void SetTexParameter()
 {
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
@@ -104,7 +103,6 @@ void SetTexParameter()
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
 }
-
 
 void ChangeSize(int _w, int _h)
 {
@@ -119,7 +117,6 @@ void ChangeSize(int _w, int _h)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 }
-
 
 void DrawObject(GLfloat _x1, GLfloat _y1, GLfloat _x2, GLfloat _y2, GLfloat _tex_x1, GLfloat _tex_y1, GLfloat _tex_x2, GLfloat _tex_y2)
 {
@@ -748,7 +745,6 @@ void RenderScene(void)
 	glutSwapBuffers();
 }
 
-
 void TimerFunction(int value)
 { 	
 	
@@ -1075,7 +1071,6 @@ void Keyboard(unsigned char key, int x, int y)
 
 	}
 }
-
 
 void KeyboardUp(unsigned char key, int x, int y)
 {

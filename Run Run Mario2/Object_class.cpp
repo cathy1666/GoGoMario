@@ -141,12 +141,14 @@ void TurtleClass::Initialize(GLfloat _x, GLfloat _y, turtleColor _color, turtleD
 	t_direction		 = _dir;
 	t_attackStrength = 1;
 }
+
 void TurtleClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	t_position.X = _x;
 	t_position.Y = _y;
 	t_attackStrength = 1;
 }
+
 void TurtleClass::Jump()
 {
 	if(t_movStateY == t_Y_normal) t_movStateY = t_Y_jumping;
@@ -189,6 +191,7 @@ void PlantClass::Initialize(GLfloat _x, GLfloat _y)
 	p_position.Y = _y;
 	p_attackStrength = 1;
 }
+
 void PlantClass::Jump()
 {
 	if(p_movStateY == p_Y_normal) p_movStateY = p_Y_jumping;
@@ -216,12 +219,14 @@ void FishClass::Move()
 	f_position.X += MOVING_X_SPEED[f_movStateX] * f_direction;
 	f_position.Y += MOVING_Y_SPEED[f_movStateY];
 }
+
 void FishClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	f_position.X = _x;
 	f_position.Y = _y;
 	f_attackStrength = 1;
 }
+
 void FishClass::Initialize(GLfloat _x, GLfloat _y, fishDirectionState _dir )
 {
 	f_position.X	 = _x;
@@ -244,6 +249,7 @@ BlockClass::BlockClass()
 	b_Position.Y = 200;
 	b_attackStrength = 100;
 }
+
 void BlockClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	b_Position.X = _x;
@@ -260,6 +266,7 @@ SpeedUpBoardClass::SpeedUpBoardClass()
 	s_Position.Y = 0;
 	s_attackStrength = 100;
 }
+
 void SpeedUpBoardClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	s_Position.X = _x;
@@ -276,6 +283,7 @@ NitrogenClass::NitrogenClass()
 	n_Position.Y = 240;
 	n_attackStrength = 100;
 }
+
 void NitrogenClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	n_Position.X = _x;
@@ -283,6 +291,7 @@ void NitrogenClass::Initialize(GLfloat _x, GLfloat _y)
 	n_attackStrength = 100;
 	n_state = n_nohave;//ch
 }
+
 void NitrogenClass::setNitrogenState(nitrogenState _n)//ch
 {
 	n_state = _n;
@@ -297,6 +306,7 @@ CoinClass::CoinClass()
 	c_Position.Y = 250;
 	c_attackStrength = 0;
 }
+
 void CoinClass::Initialize(GLfloat _x, GLfloat _y)
 {
 	c_Position.X = _x;
@@ -304,6 +314,7 @@ void CoinClass::Initialize(GLfloat _x, GLfloat _y)
 	c_attackStrength = 0;
 	c_state = nohave;//ch
 }
+
 void CoinClass::setCoinState(coinState _c){//ch
 		c_state = _c;
 }
