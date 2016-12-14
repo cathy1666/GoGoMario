@@ -1,7 +1,7 @@
 #include "freeglut/glut.h"
 //#include <GL/glut.h>
 #include <string>
-using namespace std;
+//using namespace std; //it will get "ambiguous error"
 
 
 const GLfloat	POSITION_FLOOR		= 10.0f;//change
@@ -47,7 +47,7 @@ enum marioMoveStateX			 {X_normal,				X_jumping,			X_rushing,			X_jump_rush};
 enum marioMoveStateY			 {Y_normal,				Y_jumping,			Y_rushing,			Y_jump_rush};
 enum marioMoveSpeedX			 {S_X_normal ,			S_X_jump,			S_X_rush ,			S_X_jump_rush };
 enum marioMoveSpeedY			 {S_Y_normal = 0,		S_Y_jump ,			S_Y_rush ,			S_Y_jump_rush };
-enum marioPocket				 {empty = 0 ,Nitrogen}; //Nitrogen = ´á®ð
+enum marioPocket				 {empty = 0 ,Nitrogen = 1}; //Nitrogen = ´á®ð
 enum marioPositionState		     {GROUND,AIR};
 
 /****************************************************************************************************/
@@ -198,7 +198,7 @@ struct Coordinates {
 const int BLOCK_HIGHT = 15;
 const int BLOCK_WEIGHT = 48;
 const int BLOCK_TYPE_NUM = 1;
-const string	BLOCK_TEXT_FILE[BLOCK_TYPE_NUM] = {"block.bmp"};
+const std::string	BLOCK_TEXT_FILE[BLOCK_TYPE_NUM] = {"block.bmp"};
 
 const struct BlockData{
 	GLfloat X[BlockNum];

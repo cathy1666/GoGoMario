@@ -3,6 +3,7 @@
 /****************************************************************************************************/
 // MARIO CLASS
 /****************************************************************************************************/
+
 MarioClass::MarioClass()
 {
 	m_position.X		= 100.0f;
@@ -15,7 +16,7 @@ MarioClass::MarioClass()
 	m_healthPoint		= 1;
 	m_life				= 5;
 	m_carSpeed			= 3;
-	m_Item				= 0;
+	m_Item				= empty;
 	m_coin				= 0;//ch
 }
 
@@ -105,7 +106,7 @@ void MarioClass::Rush()
 	{
 		if(m_actState == normal) m_actState = jump;//if(m_movStateY == Y_normal) m_movStateY = Y_jumping;
 	    if(m_actState == rush) m_actState = jump_rush;//if(m_movStateY == Y_rushing) m_movStateY = marioMoveStateY(Y_jump_rush);
-		m_Item = 0;
+		m_Item = empty;
 	}
 }
 
