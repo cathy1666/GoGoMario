@@ -1,100 +1,10 @@
-#include "freeglut/glut.h"
-#include <GL/glut.h>
+//#include "freeglut/glut.h"
+//#include <GL/glut.h>
 #include "DefineRunMario.h"
 #include <stdio.h>
+#include <gl/freeglut.h>
 
 float	spin;	
-
-void TextureInitial(void)
-{
-	// LOAD TEXTURES
-	MarioTexture    	= KFLoadText(".\\data\\mariocar.bmp",			    GL_RGBA);
-	RedTurtleTexture	= KFLoadText(".\\data\\red_turtle.bmp",				GL_RGBA);
-	GreenTurtleTexture  = KFLoadText(".\\data\\green_turtle.bmp",			GL_RGBA);
-	RedPlantTexture		= KFLoadText(".\\data\\red_eat_plant.bmp",			GL_RGBA);
-	GreenPlantTexture	= KFLoadText(".\\data\\green_eat_plant.bmp",		GL_RGBA);
-	FishTexture			= KFLoadText(".\\data\\big_fish.bmp",				GL_RGBA);
-	NitrogenTexture		= KFLoadText(".\\data\\nitrogen.bmp",				GL_RGBA);
-	LifeTexture			= KFLoadText(".\\data\\life.bmp",					GL_RGBA);
-	BlockTexture	 	= KFLoadText(".\\data\\block.bmp",					GL_RGBA);
-	SpeedUpBoardTexture	= KFLoadText(".\\data\\speedup_board.bmp",			GL_RGBA);
-	CoinTexture			= KFLoadText(".\\data\\coin.bmp",					GL_RGBA);
-	BackGround			= KFLoadText(".\\data\\background.bmp",				GL_RGB);
-	DeadTexture			= KFLoadText(".\\data\\dead.bmp",					GL_RGB);
-	WinTexture			= KFLoadText(".\\data\\win.bmp",					GL_RGB);
-	FailTexture			= KFLoadText(".\\data\\fail.bmp",					GL_RGB);
-
-	// INITIALIZE BLOCK CLASS
-	for (int i = 0; i < counter; i++,blockclasscounter++) 
-		Block[blockclasscounter].Initialize(TEXTURE_B.X[0]+i*95, TEXTURE_B.Y[0]);
-	
-	for (int j = 0; j < counter; j++,blockclasscounter++)
-		Block[blockclasscounter].Initialize(TEXTURE_B.X[1]+j*95, TEXTURE_B.Y[1]);
-	
-	for (int w = 0; w < counter1; w++,blockclasscounter++)
-		Block[blockclasscounter].Initialize(TEXTURE_B.X[2]+w*500, TEXTURE_B.Y[2]);
-
-	for (int z = 0; z < counter1; z++,blockclasscounter++)
-		Block[blockclasscounter].Initialize(TEXTURE_B.X[3]+z*500, TEXTURE_B.Y[3]);
-	
-	// INITIALIZE PLANT CLASS
-	for (int i = 0; i < PlantNum; i++)
-		Plant[i].Initialize(TEXTURE_P.X[i], TEXTURE_P.Y[i]);
-
-	// INITIALIZE COIN CLASS
-	for (int i = 0; i < CoinNum; i++)
-		Coin[i].Initialize(TEXTURE_COIN.X[i], TEXTURE_COIN.Y[i]);
-	
-	// INITIALIZE Nitrogen CLASS
-	for (int i = 0; i < NitrogenNum; i++)
-		N2[i].Initialize(TEXTURE_N2.X[i], TEXTURE_N2.Y[i]);
-
-	// INITIALIZE SpeedUpBoard CLASS
-	for (int i = 0; i < SpeedUpBoardNum; i++)
-		SpeedUpBoard[i].Initialize(TEXTURE_SpeedUp.X[i], TEXTURE_SpeedUp.Y[i]);
-
-	// INITIALIZE ENEMY CLASS
-	for (int i = 0; i < RTurtleNum; i++)
-	{
-		RTurtle[i].Initialize(RTurtleTexture.X[i], RTurtleTexture.Y[i]);
-		//RTurtleFrame[i] = 0;
-		//RTurtleFrameCount[i] = 1;
-	}
-
-	for (int i = 0; i < GTurtleNum; i++)
-	{
-		GTurtle[i].Initialize(GTurtleTexture.X[i], GTurtleTexture.Y[i]);
-		//GTurtleFrame[i] = 0;
-		//GTurtleFrameCount[i] = 1;
-	}
-
-	for (int i = 0; i < FishNum; i++)
-	{
-		Fish[i].Initialize(TextureFish.X[i], TextureFish.Y[i]);
-		//FishFrame[i] = 0;
-		//FishFrameCount[i] = 1;
-	}
-
-}
-
-int InitGL(GLvoid)
-{
-	glShadeModel(GL_SMOOTH);
-	glClearColor(.5f, .5f, .5f, 1.0f);
-	glDepthFunc(GL_LEQUAL);
-	glDisable(GL_DEPTH_TEST);
-	glDisable(GL_CULL_FACE);
-	glDisable(GL_LIGHTING);
-	//glEnable(GL_COLOR_MATERIAL);
-
-	glEnable(GL_TEXTURE_2D);
-	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
-	TextureInitial();
-
-	return TRUE;
-}
 
 void SetTexParameter()
 {
@@ -102,20 +12,6 @@ void SetTexParameter()
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 	glTexParameterf ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
-}
-
-void ChangeSize(int _w, int _h)
-{
-	GLfloat aspectRatio;
-
-	if (!_h) _h = 1;
-
-	glViewport(0 , 0, _w, _h);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(camera_L, camera_R, camera_B, camera_T);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 }
 
 void DrawObject(GLfloat _x1, GLfloat _y1, GLfloat _x2, GLfloat _y2, GLfloat _tex_x1, GLfloat _tex_y1, GLfloat _tex_x2, GLfloat _tex_y2)
@@ -156,6 +52,7 @@ void DrawBackGround()
 	}
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
+
 void GameOver()
 {
 	if(GetCoinNum > 25 && Mario.getlife() != 0)
@@ -182,6 +79,7 @@ void GameOver()
 	glPopMatrix();		
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
+
 void SceneChangeDetect()
 {
 	GLfloat height = MARIO_CONTECT_HEIGHT[Mario.getAction()] * SCALE / 2.0f /*+ GARVITY_Y_ADJ[Mario.getAction()] * SCALE*/;
@@ -225,6 +123,7 @@ void MovingCheck()
 	}
 	Mario.setDirection(LastDir);
 }
+
 void AttackDetect(GLfloat _x, GLfloat _y, GLfloat _w, GLfloat _h, int _l)
 {
 	
@@ -465,6 +364,10 @@ void CollisionDetect()
 	}
 }
 
+
+//=====================================================================
+
+//glutDisplayFunc
 void RenderScene(void)
 {	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -745,6 +648,22 @@ void RenderScene(void)
 	glutSwapBuffers();
 }
 
+//glutReshapeFunc
+void ChangeSize(int _w, int _h)
+{
+	GLfloat aspectRatio;
+
+	if (!_h) _h = 1;
+
+	glViewport(0, 0, _w, _h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(camera_L, camera_R, camera_B, camera_T);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
+//glutTimerFunc
 void TimerFunction(int value)
 { 	
 	
@@ -1003,6 +922,8 @@ void TimerFunction(int value)
 	glutPostRedisplay();
 	glutTimerFunc(REFRESH_TIMER, TimerFunction, 1);
 }
+
+//glutKeyboardFunc
 void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key){
@@ -1072,6 +993,7 @@ void Keyboard(unsigned char key, int x, int y)
 	}
 }
 
+//glutKeyboardUpFunc
 void KeyboardUp(unsigned char key, int x, int y)
 {
 	switch (key){
@@ -1106,68 +1028,162 @@ void KeyboardUp(unsigned char key, int x, int y)
 	}
 }
 
+//glutSpecialFunc
 void SpecKeyboard(int key, int x, int y)
 {
-	switch (key){
-		case GLUT_KEY_DOWN:
-			break;
-		case GLUT_KEY_UP:
-			break;
+	switch (key) {
+	case GLUT_KEY_DOWN:
+		break;
+	case GLUT_KEY_UP:
+		break;
 
 		// ← BUTTON DOWN
-		case GLUT_KEY_LEFT:
-		
-			break;
+	case GLUT_KEY_LEFT:
+
+		break;
 
 		// → BUTTON DOWN
-		case GLUT_KEY_RIGHT:
-		
-			break;
+	case GLUT_KEY_RIGHT:
+
+		break;
 
 		// F1 DOWN
-		case GLUT_KEY_F1:
-			/*FullScreen = !FullScreen;
-			if (FullScreen) glutFullScreen();
-			else
-			{
-				glutReshapeWindow(640, 480);
-				glutPositionWindow((GetSystemMetrics(SM_CXSCREEN) - 640) / 2, (GetSystemMetrics(SM_CYSCREEN) - 480) / 2);
-			}*/
-			break;
+	case GLUT_KEY_F1:
+		/*FullScreen = !FullScreen;
+		if (FullScreen) glutFullScreen();
+		else
+		{
+		glutReshapeWindow(640, 480);
+		glutPositionWindow((GetSystemMetrics(SM_CXSCREEN) - 640) / 2, (GetSystemMetrics(SM_CYSCREEN) - 480) / 2);
+		}*/
+		break;
 
 		// F5 DOWN
-	
+
 	}
 }
 
+//glutSpecialUpFunc
 void SpecKeyboardUp(int key, int x, int y)
 {
-	switch (key){
-		case GLUT_KEY_DOWN:
-			break;
-		case GLUT_KEY_UP:
-			break;
+	switch (key) {
+	case GLUT_KEY_DOWN:
+		break;
+	case GLUT_KEY_UP:
+		break;
 
 		// ← BUTTON UP
-		case GLUT_KEY_LEFT:
-	
-			break;
+	case GLUT_KEY_LEFT:
+
+		break;
 
 		// → BUTTON UP
- 		case GLUT_KEY_RIGHT:
-	
-			break;
+	case GLUT_KEY_RIGHT:
+
+		break;
 	}
 }
+
+void TextureInitial(void)
+{
+	// LOAD TEXTURES
+	MarioTexture = KFLoadText(".\\data\\mariocar.bmp", GL_RGBA);
+	RedTurtleTexture = KFLoadText(".\\data\\red_turtle.bmp", GL_RGBA);
+	GreenTurtleTexture = KFLoadText(".\\data\\green_turtle.bmp", GL_RGBA);
+	RedPlantTexture = KFLoadText(".\\data\\red_eat_plant.bmp", GL_RGBA);
+	GreenPlantTexture = KFLoadText(".\\data\\green_eat_plant.bmp", GL_RGBA);
+	FishTexture = KFLoadText(".\\data\\big_fish.bmp", GL_RGBA);
+	NitrogenTexture = KFLoadText(".\\data\\nitrogen.bmp", GL_RGBA);
+	LifeTexture = KFLoadText(".\\data\\life.bmp", GL_RGBA);
+	BlockTexture = KFLoadText(".\\data\\block.bmp", GL_RGBA);
+	SpeedUpBoardTexture = KFLoadText(".\\data\\speedup_board.bmp", GL_RGBA);
+	CoinTexture = KFLoadText(".\\data\\coin.bmp", GL_RGBA);
+	BackGround = KFLoadText(".\\data\\background.bmp", GL_RGB);
+	DeadTexture = KFLoadText(".\\data\\dead.bmp", GL_RGB);
+	WinTexture = KFLoadText(".\\data\\win.bmp", GL_RGB);
+	FailTexture = KFLoadText(".\\data\\fail.bmp", GL_RGB);
+
+	// INITIALIZE BLOCK CLASS
+	for (int i = 0; i < counter; i++, blockclasscounter++)
+		Block[blockclasscounter].Initialize(TEXTURE_B.X[0] + i * 95, TEXTURE_B.Y[0]);
+
+	for (int j = 0; j < counter; j++, blockclasscounter++)
+		Block[blockclasscounter].Initialize(TEXTURE_B.X[1] + j * 95, TEXTURE_B.Y[1]);
+
+	for (int w = 0; w < counter1; w++, blockclasscounter++)
+		Block[blockclasscounter].Initialize(TEXTURE_B.X[2] + w * 500, TEXTURE_B.Y[2]);
+
+	for (int z = 0; z < counter1; z++, blockclasscounter++)
+		Block[blockclasscounter].Initialize(TEXTURE_B.X[3] + z * 500, TEXTURE_B.Y[3]);
+
+	// INITIALIZE PLANT CLASS
+	for (int i = 0; i < PlantNum; i++)
+		Plant[i].Initialize(TEXTURE_P.X[i], TEXTURE_P.Y[i]);
+
+	// INITIALIZE COIN CLASS
+	for (int i = 0; i < CoinNum; i++)
+		Coin[i].Initialize(TEXTURE_COIN.X[i], TEXTURE_COIN.Y[i]);
+
+	// INITIALIZE Nitrogen CLASS
+	for (int i = 0; i < NitrogenNum; i++)
+		N2[i].Initialize(TEXTURE_N2.X[i], TEXTURE_N2.Y[i]);
+
+	// INITIALIZE SpeedUpBoard CLASS
+	for (int i = 0; i < SpeedUpBoardNum; i++)
+		SpeedUpBoard[i].Initialize(TEXTURE_SpeedUp.X[i], TEXTURE_SpeedUp.Y[i]);
+
+	// INITIALIZE ENEMY CLASS
+	for (int i = 0; i < RTurtleNum; i++)
+	{
+		RTurtle[i].Initialize(RTurtleTexture.X[i], RTurtleTexture.Y[i]);
+		//RTurtleFrame[i] = 0;
+		//RTurtleFrameCount[i] = 1;
+	}
+
+	for (int i = 0; i < GTurtleNum; i++)
+	{
+		GTurtle[i].Initialize(GTurtleTexture.X[i], GTurtleTexture.Y[i]);
+		//GTurtleFrame[i] = 0;
+		//GTurtleFrameCount[i] = 1;
+	}
+
+	for (int i = 0; i < FishNum; i++)
+	{
+		Fish[i].Initialize(TextureFish.X[i], TextureFish.Y[i]);
+		//FishFrame[i] = 0;
+		//FishFrameCount[i] = 1;
+	}
+
+}
+
+int InitGL(GLvoid)
+{
+	glShadeModel(GL_SMOOTH);
+	glClearColor(.5f, .5f, .5f, 1.0f);
+	glDepthFunc(GL_LEQUAL);
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_LIGHTING);
+	//glEnable(GL_COLOR_MATERIAL);
+
+	glEnable(GL_TEXTURE_2D);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
+	TextureInitial();
+
+	return TRUE;
+}
+
+//=====================================================================
 
 int main(int argc, char* argv[])
 {
     glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(window_width, window_height);
-	glutCreateWindow("GO GO MARIO");
-	glutPositionWindow((GetSystemMetrics(SM_CXSCREEN) - window_width) / 2, (GetSystemMetrics(SM_CYSCREEN) - window_height) / 2);
-   	
+	glutInitWindowPosition((GetSystemMetrics(SM_CXSCREEN) - window_width) / 2, (GetSystemMetrics(SM_CYSCREEN) - window_height) / 2);
+   	glutCreateWindow("GO GO MARIO");
    	
    	glutDisplayFunc(RenderScene);//OpenGL的繪圖動作都寫在它所指定的自定函式(也就是RenderScene)	
 	glutReshapeFunc(ChangeSize);
@@ -1177,8 +1193,7 @@ int main(int argc, char* argv[])
 	/*glutSpecialFunc(SpecKeyboard);
 	glutSpecialUpFunc(SpecKeyboardUp);
 */
-	InitGL();
-	
+	InitGL();	
 	
 	glutMainLoop();
 	return 0;

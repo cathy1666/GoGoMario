@@ -1,2 +1,10 @@
-﻿  Run Run Mario.vcxproj -> C:\Users\Cathy\Documents\GitHub\RunRunMario\Run Run Mario2\Debug\Run Run Mario.exe
+﻿  RunMario.cpp
+c:\users\cathy\documents\github\runrunmario\run run mario2\object_class.h(240): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\cathy\documents\github\runrunmario\run run mario2\object_class.h(265): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\cathy\documents\github\runrunmario\run run mario2\object_class.h(291): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\cathy\documents\github\runrunmario\run run mario2\object_class.h(318): warning C4244: 'return': conversion from 'int' to 'GLfloat', possible loss of data
+c:\users\cathy\documents\github\runrunmario\run run mario2\definerunmario.h(7): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\cathy\documents\github\runrunmario\run run mario2\runmario.cpp(110): warning C4101: 'aspectRatio': unreferenced local variable
+c:\users\cathy\documents\github\runrunmario\run run mario2\runmario.cpp(1063): warning C4244: 'argument': conversion from 'const GLfloat' to 'int', possible loss of data
+  Run Run Mario.vcxproj -> C:\Users\Cathy\Documents\GitHub\RunRunMario\Run Run Mario2\Debug\Run Run Mario.exe
   Run Run Mario.vcxproj -> C:\Users\Cathy\Documents\GitHub\RunRunMario\Run Run Mario2\Debug\Run Run Mario.pdb (Full PDB)

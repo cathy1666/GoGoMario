@@ -1,6 +1,7 @@
-#include "freeglut/glut.h"
+//#include "freeglut/glut.h"
 //#include <GL/glut.h>
 #include <string>
+#include <gl/freeglut.h>
 //using namespace std; //it will get "ambiguous error"
 
 
