@@ -15,3 +15,5 @@
 ### 遊戲畫面
 
 ![game](game.png "game")
+![game2](game2.png "game2")
+![game3](game3.png "game3")
