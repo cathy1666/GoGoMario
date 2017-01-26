@@ -1,4 +1,5 @@
 ## 跑跑馬力歐 GoGoMario
+A simple 2D side-scrolling game developed using OpenCV & OpenGL.
 
 ### 功能
 1. 橫向卷軸遊戲，主角馬力歐自動向右移動。
